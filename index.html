@@ -1,292 +1,356 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3D Portfolio Website HTML CSS and Javascript | Codehal</title>
+    <!-- Ensure viewport allows scaling naturally, disable pinch-zoom to keep app-like feel -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Ajay Rathod — Portfolio</title>
+    <meta name="description"
+        content="Professional portfolio of Ajay Rathod — Web Developer, C++ Developer & Educator. Explore my work, skills, and projects.">
+    <meta name="author" content="Ajay Rathod">
     <link rel="stylesheet" href="style.css">
-    <!-- box icons -->
+    <!-- Google Fonts: Inter & Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Box Icons -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
 </head>
+
 <body>
 
-<div class="wrapper">
-    <div class="cover cover-left"></div>
-    <div class="cover cover-right"></div>
-
-
-<div class="book">
-    <div class="book-page page-left">
-        <div class="profile-page">
-            <img src="myprofileew.jpg" alt="Profile Image">
-            <h1>Ajay Rathod</h1>
-            <h3 class="dynamic-title typewriter"> web developer </h3>
-
-
-            <div class="social-media">
-                <a href=""><i class='bx bxl-linkedin'></i></a>
-                <a href=""><i class='bx bxl-github'></i></a>
-                <a href=""><i class='bx bxl-gmail'></i></a>
-                <a href=""><i class='bx bx-phone'></i></a>
-            </div>
-
-            <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia reprehenderit a, molestias quidem repellat eius?</p>
-
-            <div class="btn-box">
-                <a href="#" class="btn">dawnload cv</a>
-                <a href="#" class="btn contact-me">contact me </a>
-            </div>
+    <!-- Mobile Portrait Rotate Overlay -->
+    <div class="rotate-overlay" id="rotateOverlay" style="display: none;">
+        <div class="rotate-content">
+            <i class='bx bx-rotate-right rotate-icon'></i>
+            <h2>Rotate Device</h2>
+            <p>Landscape mode required for Flipbook</p>
         </div>
     </div>
 
-<!-- page 1 & 2 -->
-
-    <div class="book-page page-right turn" id="turn-1">
-
-    <!-- page 1 (work experience) -->
-     <div class="page-front">
-        <h1 class="title">Work experience</h1>
-        <div class="workeduc-box">
-            <div class="workeduc-content">
-                <span class="year">2020 - 2021</span>
-                <h3>web-devepeler</h3>
-                <p>Lorem ipsum dolor s, quod, aperiam veritatis perferendis rerum culpa.</p>
-            </div>
-
-            <div class="workeduc-content">
-                <span class="year">2023 - 2021</span>
-                <h3>web-devepeler</h3>
-                <p>Lorem ipsum dolor s, quod, aperiam veritatis perferendis rerum culpa.</p>
-            </div>
-
-            <div class="workeduc-content">
-                <span class="year">2020 - 2021</span>
-                <h3>web-devepeler</h3>
-                <p>Lorem ipsum dolor s, quod, aperiam veritatis perferendis rerum culpa.</p>
-            </div>
-        </div>
-
-        <span class="number-page">1</span>
-
-            <!-- next button  -->
-            <span class="nextprev-btn" data-page="turn-1">
-                <i class='bx bx-chevron-right'></i>
-            </span>  
-     </div>
-
-     
-    <!-- page 2 (education) -->
-        <div class="page-back">
-            <h1 class="title">Education</h1>
-            
-
-            <div class="workeduc-box">
-                <div class="workeduc-content">
-                    <span class="year">2020 - 2021</span>
-                    <h3>web-devepeler</h3>
-                    <p>Lorem ipsum dolor s, quod, aperiam veritatis perferendis rerum culpa.</p>
-                </div>
-    
-                <div class="workeduc-content">
-                    <span class="year">2023 - 2021</span>
-                    <h3>web-devepeler</h3>
-                    <p>Lorem ipsum dolor s, quod, aperiam veritatis perferendis rerum culpa.</p>
-                </div>
-    
-                <div class="workeduc-content">
-                    <span class="year">2020 - 2021</span>
-                    <h3>web-devepeler</h3>
-                    <p>Lorem ipsum dolor s, quod, aperiam veritatis perferendis rerum culpa.</p>
-                </div>
-            </div>
-            
-            <span class="number-page">2</span>
-
-                <!-- prev button  -->
-    
-                <span class="nextprev-btn back" data-page="turn-1">
-                    <i class='bx bx-chevron-left'></i>
-                </span>    
-        </div>
-        
+    <!-- Background Particles -->
+    <div class="bg-particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
     </div>
 
+    <!-- Dynamic Scaling Container -->
+    <div class="scale-wrapper" id="scaleWrapper">
+        <div class="wrapper">
+            <div class="cover cover-left"></div>
+            <div class="cover cover-right"></div>
 
-        <!-- page 3 and 4 -->
-         
-    <div class="book-page page-right turn" id="turn-2">
+            <div class="book" id="bookEl">
 
-        <!-- page 3 -->
-         <div class="page-front">
-             <h1 class="title">My Services</h1>
-            
-             <div class="services-box">
-                <div class="services-content">
-                    <i class='bx bx-code-alt'></i>
-                    <h3>we developer</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur.</p>
-                    <a href="#" class="btn">Read More</a>
+                <!-- Profile Page (Left Side — always visible) -->
+                <div class="book-page page-left">
+                    <div class="profile-page">
+                        <div class="profile-img-wrapper">
+                            <img src="myprofileew.jpg" alt="Ajay Rathod Profile Photo">
+                            <div class="profile-glow"></div>
+                        </div>
+                        <h1>Ajay Rathod</h1>
+                        <h3 class="dynamic-title typewriter">Web Developer</h3>
+
+                        <div class="social-media">
+                            <a href="#" aria-label="LinkedIn" title="LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                            <a href="#" aria-label="GitHub" title="GitHub"><i class='bx bxl-github'></i></a>
+                            <a href="#" aria-label="Email" title="Email"><i class='bx bx-envelope'></i></a>
+                            <a href="#" aria-label="Phone" title="Phone"><i class='bx bx-phone'></i></a>
+                        </div>
+
+                        <p class="profile-bio">Passionate web developer crafting elegant digital experiences. Dedicated
+                            to clean code, modern design, and impactful solutions.</p>
+
+                        <div class="btn-box">
+                            <a href="#" class="btn btn-primary" id="downloadCvBtn">
+                                <i class='bx bx-download'></i> Download CV
+                            </a>
+                            <a href="#" class="btn btn-outline contact-me" id="contactMeBtn">
+                                <i class='bx bx-message-dots'></i> Contact Me
+                            </a>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="services-content">
-                    <i class='bx bx-code-alt'></i>
-                    <h3>we developer</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur.</p>
-                    <a href="#" class="btn">Read More</a>
+                <!-- ========== PAGE 1 & 2 ========== -->
+                <div class="book-page page-right turnable" id="page-1" data-index="0">
+
+                    <!-- Page 1 — Work Experience -->
+                    <div class="page-front" title="Drag left to flip">
+                        <div class="page-header">
+                            <i class='bx bx-briefcase'></i>
+                            <h1 class="title">Work Experience</h1>
+                        </div>
+                        <div class="workeduc-box">
+                            <div class="workeduc-content">
+                                <div class="timeline-dot"></div>
+                                <span class="year"><i class='bx bx-calendar'></i> 2023 — Present</span>
+                                <h3>Full Stack Developer</h3>
+                                <span class="company">Freelance / Self-Employed</span>
+                                <p>Building responsive web applications using React, Node.js, and modern web
+                                    technologies. Delivering end-to-end solutions for clients.</p>
+                            </div>
+                            <div class="workeduc-content">
+                                <div class="timeline-dot"></div>
+                                <span class="year"><i class='bx bx-calendar'></i> 2022 — 2023</span>
+                                <h3>Frontend Developer Intern</h3>
+                                <span class="company">Tech Solutions Pvt. Ltd.</span>
+                                <p>Developed responsive UI components, optimized web performance, and collaborated with
+                                    backend teams on REST API integration.</p>
+                            </div>
+                            <div class="workeduc-content">
+                                <div class="timeline-dot"></div>
+                                <span class="year"><i class='bx bx-calendar'></i> 2021 — 2022</span>
+                                <h3>Educator — GradHub</h3>
+                                <span class="company">GradHub Education Platform</span>
+                                <p>Created technical courses on C++, Data Structures, and Web Development. Mentored 500+
+                                    students in programming fundamentals.</p>
+                            </div>
+                        </div>
+                        <span class="number-page">1</span>
+                        <span class="nextprev-btn next-btn" data-page="0">
+                            <i class='bx bx-chevron-right'></i>
+                        </span>
+                        <!-- Drag Handle Overlay -->
+                        <div class="drag-handle right-handle"></div>
+                    </div>
+
+                    <!-- Page 2 — Education -->
+                    <div class="page-back" title="Drag right to flip back">
+                        <div class="page-header">
+                            <i class='bx bx-book-open'></i>
+                            <h1 class="title">Education</h1>
+                        </div>
+                        <div class="workeduc-box">
+                            <div class="workeduc-content">
+                                <div class="timeline-dot"></div>
+                                <span class="year"><i class='bx bx-calendar'></i> 2020 — 2024</span>
+                                <h3>B.Tech in Computer Science</h3>
+                                <span class="company">University of Technology</span>
+                                <p>Core studies in Software Engineering, DSA, DBMS, Computer Networks, and Operating
+                                    Systems. Active participant in hackathons and coding competitions.</p>
+                            </div>
+                            <div class="workeduc-content">
+                                <div class="timeline-dot"></div>
+                                <span class="year"><i class='bx bx-calendar'></i> 2018 — 2020</span>
+                                <h3>Higher Secondary (XII)</h3>
+                                <span class="company">Science Stream — PCM</span>
+                                <p>Achieved strong academic performance with focus on Mathematics and Computer Science.
+                                    Built foundational programming skills during this period.</p>
+                            </div>
+                            <div class="workeduc-content">
+                                <div class="timeline-dot"></div>
+                                <span class="year"><i class='bx bx-calendar'></i> 2017 — 2018</span>
+                                <h3>Secondary School (X)</h3>
+                                <span class="company">CBSE Board</span>
+                                <p>Completed secondary education with distinction. Early exposure to programming and web
+                                    technologies sparked passion for tech.</p>
+                            </div>
+                        </div>
+                        <span class="number-page">2</span>
+                        <span class="nextprev-btn prev-btn back" data-page="0">
+                            <i class='bx bx-chevron-left'></i>
+                        </span>
+                        <!-- Drag Handle Overlay -->
+                        <div class="drag-handle left-handle"></div>
+                    </div>
                 </div>
 
-                <div class="services-content">
-                    <i class='bx bx-code-alt'></i>
-                    <h3>we developer</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur.</p>
-                    <a href="#" class="btn">Read More</a>
+                <!-- ========== PAGE 3 & 4 ========== -->
+                <div class="book-page page-right turnable" id="page-2" data-index="1">
+
+                    <!-- Page 3 — Services -->
+                    <div class="page-front" title="Drag left to flip">
+                        <div class="page-header">
+                            <i class='bx bx-code-block'></i>
+                            <h1 class="title">My Services</h1>
+                        </div>
+                        <div class="services-box">
+                            <div class="services-content">
+                                <div class="service-icon"><i class='bx bx-code-alt'></i></div>
+                                <h3>Web Development</h3>
+                                <p>Building modern, responsive websites and web applications with clean architecture.
+                                </p>
+                            </div>
+                            <div class="services-content">
+                                <div class="service-icon"><i class='bx bx-mobile-alt'></i></div>
+                                <h3>Responsive Design</h3>
+                                <p>Pixel-perfect designs that work seamlessly across all devices and screen sizes.</p>
+                            </div>
+                            <div class="services-content">
+                                <div class="service-icon"><i class='bx bx-server'></i></div>
+                                <h3>Backend Development</h3>
+                                <p>REST APIs, database design, and server-side logic with Node.js and Express.</p>
+                            </div>
+                            <div class="services-content">
+                                <div class="service-icon"><i class='bx bx-chalkboard'></i></div>
+                                <h3>Tech Education</h3>
+                                <p>Creating comprehensive courses and mentoring students in programming and DSA.</p>
+                            </div>
+                        </div>
+                        <span class="number-page">3</span>
+                        <span class="nextprev-btn next-btn" data-page="1">
+                            <i class='bx bx-chevron-right'></i>
+                        </span>
+                        <div class="drag-handle right-handle"></div>
+                    </div>
+
+                    <!-- Page 4 — Skills -->
+                    <div class="page-back" title="Drag right to flip back">
+                        <div class="page-header">
+                            <i class='bx bx-star'></i>
+                            <h1 class="title">My Skills</h1>
+                        </div>
+                        <div class="skills-box">
+                            <div class="skills-content">
+                                <h3><i class='bx bx-code-curly'></i> Languages</h3>
+                                <div class="content">
+                                    <span><i class='bx bxl-c-plus-plus'></i>C++</span>
+                                    <span><i class='bx bxl-javascript'></i>JavaScript</span>
+                                    <span><i class='bx bx-data'></i>SQL</span>
+                                    <span><i class='bx bxl-html5'></i>HTML/CSS</span>
+                                </div>
+                            </div>
+                            <div class="skills-content">
+                                <h3><i class='bx bx-layer'></i> Frameworks</h3>
+                                <div class="content">
+                                    <span><i class='bx bxl-react'></i>React</span>
+                                    <span><i class='bx bxl-nodejs'></i>Node.js</span>
+                                    <span><i class='bx bxl-angular'></i>Angular</span>
+                                    <span><i class='bx bxl-tailwind-css'></i>Tailwind</span>
+                                </div>
+                            </div>
+                            <div class="skills-content">
+                                <h3><i class='bx bx-wrench'></i> Tools</h3>
+                                <div class="content">
+                                    <span><i class='bx bxl-github'></i>GitHub</span>
+                                    <span><i class='bx bxl-git'></i>Git</span>
+                                    <span><i class='bx bxl-visual-studio'></i>VS Code</span>
+                                    <span><i class='bx bxl-figma'></i>Figma</span>
+                                </div>
+                            </div>
+                            <div class="skills-content">
+                                <h3><i class='bx bx-book-reader'></i> Core CS</h3>
+                                <div class="content">
+                                    <span><i class='bx bx-network-chart'></i>DSA</span>
+                                    <span><i class='bx bxl-windows'></i>OS</span>
+                                    <span><i class='bx bx-link'></i>CN</span>
+                                    <span><i class='bx bx-data'></i>DBMS</span>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="number-page">4</span>
+                        <span class="nextprev-btn prev-btn back" data-page="1">
+                            <i class='bx bx-chevron-left'></i>
+                        </span>
+                        <div class="drag-handle left-handle"></div>
+                    </div>
                 </div>
 
+                <!-- ========== PAGE 5 & 6 ========== -->
+                <div class="book-page page-right turnable" id="page-3" data-index="2">
 
-                <div class="services-content">
-                    <i class='bx bx-code-alt'></i>
-                    <h3>we developer</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur.</p>
-                    <a href="#" class="btn">Read More</a>
+                    <!-- Page 5 — Featured Project -->
+                    <div class="page-front" title="Drag left to flip">
+                        <div class="page-header">
+                            <i class='bx bx-folder-open'></i>
+                            <h1 class="title">Featured Project</h1>
+                        </div>
+                        <div class="portfolio-box">
+                            <div class="img-box">
+                                <img src="portfolio.jpg" alt="Project Screenshot">
+                                <div class="img-overlay">
+                                    <i class='bx bx-link-external'></i>
+                                </div>
+                            </div>
+                            <div class="info-box">
+                                <div class="info-title">
+                                    <h3>Portfolio Website</h3>
+                                    <a href="#" target="_blank">Live Preview <i class='bx bx-link-external'></i></a>
+                                </div>
+                                <div class="tech-tags">
+                                    <span>HTML5</span>
+                                    <span>CSS3</span>
+                                    <span>JavaScript</span>
+                                </div>
+                                <p>A 3D interactive flipbook-style portfolio website with advanced page-turn animations,
+                                    responsive design, and modern aesthetics.</p>
+                            </div>
+                            <div class="btn-box">
+                                <a href="#" class="btn btn-primary"><i class='bx bxl-github'></i> Source Code</a>
+                                <a href="#" class="btn btn-outline"><i class='bx bx-collection'></i> More Projects</a>
+                            </div>
+                        </div>
+                        <span class="number-page">5</span>
+                        <span class="nextprev-btn next-btn" data-page="2">
+                            <i class='bx bx-chevron-right'></i>
+                        </span>
+                        <div class="drag-handle right-handle"></div>
+                    </div>
+
+                    <!-- Page 6 — Contact Me -->
+                    <div class="page-back" title="Drag right to flip back">
+                        <div class="page-header">
+                            <i class='bx bx-conversation'></i>
+                            <h1 class="title">Get In Touch</h1>
+                        </div>
+                        <div class="contact-box">
+                            <p class="contact-intro">Interested in working together? Let's connect and build something
+                                great.</p>
+                            <form action="#" id="contactForm">
+                                <div class="form-group">
+                                    <input type="text" class="field" placeholder="Your Name" required id="contactName">
+                                    <i class='bx bx-user field-icon'></i>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="field" placeholder="Your Email" required
+                                        id="contactEmail">
+                                    <i class='bx bx-envelope field-icon'></i>
+                                </div>
+                                <div class="form-group">
+                                    <textarea cols="30" rows="10" class="field" placeholder="Your Message" required
+                                        id="contactMessage"></textarea>
+                                    <i class='bx bx-message-detail field-icon textarea-icon'></i>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-submit">
+                                    <i class='bx bx-send'></i> Send Message
+                                </button>
+                            </form>
+                        </div>
+                        <span class="number-page">6</span>
+                        <span class="nextprev-btn prev-btn back" data-page="2">
+                            <i class='bx bx-chevron-left'></i>
+                        </span>
+                        <a href="#" class="back-profile" id="backProfileBtn" title="Back to Profile">
+                            <i class='bx bxs-user'></i>
+                        </a>
+                        <div class="drag-handle left-handle"></div>
+                    </div>
                 </div>
-             </div>
 
-             
-        <span class="number-page">3</span>
+            </div><!-- .book -->
 
-        <!-- next button  -->
-        <span class="nextprev-btn" data-page="turn-2">
-            <i class='bx bx-chevron-right'></i>
-        </span>  
-            
+            <!-- Page Indicator Dots -->
+            <div class="page-dots" id="pageDots">
+                <span class="dot active" data-goto="profile" title="Profile"></span>
+                <span class="dot" data-goto="0" title="Page 1-2"></span>
+                <span class="dot" data-goto="1" title="Page 3-4"></span>
+                <span class="dot" data-goto="2" title="Page 5-6"></span>
             </div>
-            
-       
 
-        <!-- page4 -->
-        <div class="page-back">
-            <h1 class="title">My Skills</h1>
-            <div class="skills-box">
-                <div class="skills-content">
-                    <h3>Languages</h3>
-                    <div class="content">
-                        <span><i class='bx bxl-c-plus-plus'></i>C++</span> 
-                        <span><i class='bx bxl-javascript'></i>JS</span> 
-                        <span><i class='bx bx-data'></i>SQL</span> 
-                        <span><i class='bx bxl-html5 bxl-css3'></i>HTML/CSS</span> 
-                    </div>
-                </div>
-                <div class="skills-content">
-                    <h3>Libraries/Framework</h3>
-                    <div class="content">
-                        <span><i class='bx bxl-react'></i>react</span> 
-                        <span><i class='bx bxl-nodejs'></i>Nodejs</span> 
-                        <span><i class='bx bxl-angular'></i>Angular</span> 
-                        <span><i class='bx bxl-html5 bxl-tailwind-css'></i>Tailwind</span> 
-                    </div>
-                </div>
+        </div><!-- .wrapper -->
+    </div><!-- .scale-wrapper -->
 
-                <div class="skills-content">
-                    <h3>Tools/Technology</h3>
-                    <div class="content">
-                        <span><i class='bx bxl-github'></i>GitHub</span>
-                        <span><i class='bx bxl-git'></i>Git</span>  
-                        <span><i class='bx bxl-visual-studio'></i>Vs Code</span> 
-                        <span><i class='bx bxl-microsoft'></i>Ms-Suite</span> 
-                    </div>
-                </div>
-
-                <div class="skills-content">
-                    <h3>Technical Electives</h3>
-                    <div class="content">
-                        <span><i class='bx bx-network-chart'></i>DSA</span> 
-                        <span><i class='bx bxl-windows'></i>OS</span>  
-                        <span><i class='bx bx-link'></i>CN</span>
-                        <span><i class='bx bx-data'></i>DBMS</span> 
-                    </div>
-                </div>
-            </div>
-
-            <span class="number-page">4</span>
-
-            <!-- prev button  -->
-
-            <span class="nextprev-btn back" data-page="turn-2">
-                <i class='bx bx-chevron-left'></i>
-            </span>    
-        </div>
-
-    </div>
-
-    <!-- page 5 ad 6  -->
-
-    <div class="book-page page-right turn" id="turn-3">
-        
-        <!-- page 5 -->
-        <div class="page-front">
-            <h1 class="title">Latest Project </h1>
-
-            <div class="portfolio-box">
-                <div class="img-box">
-                    <img src="portfolio.jpg" alt="">
-                </div>
-
-                <div class="info-box">
-                    <div class="info-title">
-                        <h3>Project Name </h3>
-                        <a href="">Live Preview <i class='bx bx-link-external'></i></a>
-                    </div>
-                    <p>Tech Used:</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae provident rerum eius minus.</p>
-                </div>
-    
-                <div class="btn-box">
-                    <a href="" class="btn">Source Code</a>
-                    <a href="" class="btn">More Projects</a>
-                </div>
-            </div>
-            <span class="number-page">5</span>
-
-            <!-- next button  -->
-            <span class="nextprev-btn" data-page="turn-3">
-                <i class='bx bx-chevron-right'></i>
-            </span>  
-        </div>
-        
-        <!-- page 6  -->
-
-        <div class="page-back">
-            <h1 class="title">Contact me</h1>
-            <div class="contact-box">
-                <form action="#">
-                    <input type="text" class="field" placeholder="Full Name" required>
-                    <input type="email" class="field" placeholder="email address" required>
-                    <textarea name="" id="" cols="30" rows="10" class="field" placeholder="Your Message" required></textarea>
-                    <input type="submit" class="btn" value="Send Message">
-                </form>
-            </div>
-
-            <span class="number-page">6</span>
-
-            <!-- prev button  -->
-
-            <span class="nextprev-btn back" data-page="turn-3">
-                <i class='bx bx-chevron-left'></i>
-            </span> 
-            
-            <a href="#" class="back-profile">
-                <p>profile</p>
-                <i class='bx bxs-user'></i>
-            </a>
-        </div>
-
-</div>
-
-</div>
-
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>
