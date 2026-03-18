@@ -28,15 +28,44 @@
   const BASE_WIDTH = 1056;
   const BASE_HEIGHT = 720;
 
+  let forceRotated = false;
+  const continueRotatedBtn = document.getElementById('continueRotatedBtn');
+
+  if (continueRotatedBtn) {
+    continueRotatedBtn.addEventListener('click', () => {
+      forceRotated = true;
+      applyScaling();
+    });
+  }
+
   function applyScaling() {
     if (!scaleWrapper) return;
 
     // Check if device is mobile portrait
     if (window.innerWidth <= 768 && window.innerHeight > window.innerWidth) {
-      rotateOverlay.style.display = 'flex';
-      scaleWrapper.style.display = 'none';
-      return;
+      if (!forceRotated) {
+        rotateOverlay.style.display = 'flex';
+        scaleWrapper.style.display = 'none';
+        return;
+      } else {
+        rotateOverlay.style.display = 'none';
+        scaleWrapper.style.display = 'flex';
+
+        // Calculate scale mapping width to screen height and height to screen width
+        const availableWidth = window.innerHeight - 32;
+        const availableHeight = window.innerWidth - 32;
+
+        const scaleRatio = Math.min(
+          availableWidth / BASE_WIDTH,
+          availableHeight / BASE_HEIGHT,
+          1.1
+        );
+
+        scaleWrapper.style.transform = `translate(-50%, -50%) rotate(90deg) scale(${scaleRatio})`;
+        return;
+      }
     } else {
+      forceRotated = false;
       rotateOverlay.style.display = 'none';
       scaleWrapper.style.display = 'flex';
     }
@@ -116,7 +145,11 @@
     const startDrag = (e) => {
       isDragging = true;
       isAlreadyTurned = page.classList.contains('turn');
-      startX = e.type.includes('mouse') ? e.pageX : e.touches[0].pageX;
+
+      const isRotated = window.innerWidth <= 768 && window.innerHeight > window.innerWidth && document.getElementById('rotateOverlay').style.display === 'none';
+      startX = e.type.includes('mouse')
+        ? (isRotated ? e.pageY : e.pageX)
+        : (isRotated ? e.touches[0].pageY : e.touches[0].pageX);
 
       page.classList.add('flipping'); // Remove CSS transition for 1:1 drag
 
@@ -128,7 +161,10 @@
       if (!isDragging) return;
       e.preventDefault();
 
-      const currentX = e.type.includes('mouse') ? e.pageX : e.touches[0].pageX;
+      const isRotated = window.innerWidth <= 768 && window.innerHeight > window.innerWidth && document.getElementById('rotateOverlay').style.display === 'none';
+      const currentX = e.type.includes('mouse')
+        ? (isRotated ? e.pageY : e.pageX)
+        : (isRotated ? e.touches[0].pageY : e.touches[0].pageX);
       let deltaX = currentX - startX;
 
       // Convert screen delta to degrees (-180 to 0)
