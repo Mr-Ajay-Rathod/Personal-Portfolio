@@ -288,7 +288,7 @@ body {
 .drag-handle {
   position: absolute;
   top: 0;
-  width: 20%;
+  width: 50%;
   height: 100%;
   cursor: grab;
   z-index: 50;
