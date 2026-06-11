@@ -1,3 +1,5 @@
+  
+
 // ============================
 // PORTFOLIO FLIPBOOK — Advanced Interactions & Drag-to-Flip
 // ============================
@@ -320,7 +322,7 @@
   playOpeningSequence();
 
   // ---- Typewriter ----
-  const titles = ["Full Stack Developer", "C++ Developer", "GradHub Educator", "Web Developer"];
+  const titles = [".NET Full Stack Developer", "C# Developer", "ASP.NET Core Developer", "Angular Developer"];
   let titleIndex = 0;
   let isDeleting = false;
   let charIndex = 0;
